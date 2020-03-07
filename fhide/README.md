@@ -10,9 +10,9 @@ the filesystem « / »
 	$ make
 ```
 
-## Installation ##
+## Installation ## // Made a slight improvement //William Martens
 ```
-	$ sudo insmod fhide.ko
+	$ sudo insmod fhide.ko prefix="hideme"
 ```
 
 ## Removal ##
